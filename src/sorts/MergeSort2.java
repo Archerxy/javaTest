@@ -17,9 +17,9 @@ public class MergeSort2 implements Sort{
 	    }
 	}
 	private void merge(int left,int mid,int right){
-	    int i = left;//左序列指针
-	    int j = mid+1;//右序列指针
-	    int t = 0;//临时数组指针
+	    int i = left;
+	    int j = mid+1;
+	    int t = 0;
 	    while (i<=mid && j<=right){
 	        if(array[i]<=array[j]){
 	            temp[t++] = array[i++];
@@ -27,10 +27,10 @@ public class MergeSort2 implements Sort{
 	            temp[t++] = array[j++];
 	        }
 	    }
-	    while(i<=mid){//将左边剩余元素填充进temp中
+	    while(i<=mid){
 	        temp[t++] = array[i++];
 	    }
-	    while(j<=right){//将右序列剩余元素填充进temp中
+	    while(j<=right){
 	        temp[t++] = array[j++];
 	    }
 	    t = 0;
