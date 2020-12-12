@@ -1,6 +1,10 @@
 package crypto;
 
 import java.security.NoSuchAlgorithmException;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
 import java.security.MessageDigest;
 
 public class Crypto {
@@ -31,5 +35,16 @@ public class Crypto {
             strHexString.append(hex);
         }
         return strHexString.toString();
+	}
+	
+	public static void rsa() throws NoSuchAlgorithmException {
+		KeyPairGenerator generator = KeyPairGenerator.getInstance("RSA");
+		KeyPair kp = generator.generateKeyPair();
+		PrivateKey sec = kp.getPrivate();
+		PublicKey pub = kp.getPublic();
+		String secKey = new String(sec.getEncoded());
+		String pubKey = new String(pub.getEncoded());
+		System.out.println(secKey+"\t"+pubKey);
+		
 	}
 }
